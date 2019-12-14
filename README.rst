@@ -1,11 +1,12 @@
+=======================
 EasyJWT
 =======================
 
 Overview
 --------
 
-This package provides `JSON Web Token Authentication`_ support for
-`Django REST framework`_.
+This package provides JSON Web Token Authentication support for
+Django REST framework.
 
 Requirements
 ------------
