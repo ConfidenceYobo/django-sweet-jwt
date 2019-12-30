@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __title__ = 'djangoeasyjwt'
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 __author__ = 'Confi Yobo'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2014-2017 Blimp LLC'

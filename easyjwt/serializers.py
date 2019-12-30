@@ -96,6 +96,9 @@ class VerificationBaseSerializer(Serializer):
     def _check_user(self, payload):
         user = jwt_get_user_from_payload(payload)
 
+        print('RETURNED USR DATA')
+        print(user)
+
         if not user:
             msg = _("User doesn't exist.")
             raise serializers.ValidationError(msg)

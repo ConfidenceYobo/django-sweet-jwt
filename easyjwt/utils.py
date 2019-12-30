@@ -62,11 +62,7 @@ def jwt_payload_handler(user):
 
 def jwt_get_user_from_payload_handler(payload):
     User = get_user_model()
-    try:
-        user = User.objects.get(pk=payload.get('user_id'))
-    except User.DoesNotExist:
-        return None
-    return user
+    return User.objects.get(pk=payload.get('user_id'))
 
 
 def jwt_encode_handler(payload):
