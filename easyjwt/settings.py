@@ -25,8 +25,8 @@ DEFAULTS = {
     'JWT_PUBLIC_KEY':
     None,
 
-    'JWT_PAYLOAD_GET_USERNAME_HANDLER':
-    'easyjwt.utils.jwt_get_username_from_payload_handler',
+    'JWT_PAYLOAD_GET_USER_HANDLER':
+    'easyjwt.utils.jwt_get_user_from_payload_handler',
 
     'JWT_RESPONSE_PAYLOAD_HANDLER':
     'easyjwt.utils.jwt_response_payload_handler',

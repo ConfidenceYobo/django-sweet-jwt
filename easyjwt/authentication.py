@@ -12,7 +12,7 @@ from easyjwt.settings import api_settings
 
 
 jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
-jwt_get_username_from_payload = api_settings.JWT_PAYLOAD_GET_USERNAME_HANDLER
+jwt_get_user_from_payload = api_settings.JWT_PAYLOAD_GET_USER_HANDLER
 
 
 class BaseJSONWebTokenAuthentication(BaseAuthentication):
@@ -49,15 +49,9 @@ class BaseJSONWebTokenAuthentication(BaseAuthentication):
         Returns an active user that matches the payload's user id and email.
         """
         User = get_user_model()
-        username = jwt_get_username_from_payload(payload)
+        user = jwt_get_user_from_payload(payload)
 
-        if not username:
-            msg = _('Invalid payload.')
-            raise exceptions.AuthenticationFailed(msg)
-
-        try:
-            user = User.objects.get_by_natural_key(username)
-        except User.DoesNotExist:
+        if not user:
             msg = _('Invalid signature.')
             raise exceptions.AuthenticationFailed(msg)
 

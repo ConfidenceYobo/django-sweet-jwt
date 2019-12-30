@@ -60,11 +60,13 @@ def jwt_payload_handler(user):
     return payload
 
 
-def jwt_get_username_from_payload_handler(payload):
-    """
-    Override this function if username is formatted differently in payload
-    """
-    return payload.get('username')
+def jwt_get_user_from_payload_handler(payload):
+    User = get_user_model()
+    try:
+        user = User.objects.get(pk=payload.get('user_id'))
+    except User.DoesNotExist:
+        return None
+    return user
 
 
 def jwt_encode_handler(payload):

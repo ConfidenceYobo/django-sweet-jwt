@@ -16,7 +16,7 @@ User = get_user_model()
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
-jwt_get_username_from_payload = api_settings.JWT_PAYLOAD_GET_USERNAME_HANDLER
+jwt_get_user_from_payload = api_settings.JWT_PAYLOAD_GET_USER_HANDLER
 
 
 class JSONWebTokenSerializer(Serializer):
@@ -94,16 +94,9 @@ class VerificationBaseSerializer(Serializer):
         return payload
 
     def _check_user(self, payload):
-        username = jwt_get_username_from_payload(payload)
+        user = jwt_get_user_from_payload(payload)
 
-        if not username:
-            msg = _('Invalid payload.')
-            raise serializers.ValidationError(msg)
-
-        # Make sure user exists
-        try:
-            user = User.objects.get_by_natural_key(username)
-        except User.DoesNotExist:
+        if not user:
             msg = _("User doesn't exist.")
             raise serializers.ValidationError(msg)
 
