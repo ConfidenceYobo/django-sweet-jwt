@@ -18,12 +18,12 @@ def get_version(package):
         return re.search("__version__ = ['\"]([^'\"]+)['\"]", src).group(1)
 
 
-name = 'djangoeasy-jwt'
-version = get_version('easyjwt')
-package = 'easyjwt'
+name = 'djangosweet-jwt'
+version = get_version('sweetjwt')
+package = 'sweetjwt'
 description = 'JSON Web Token based authentication for Django REST framework'
-url = 'https://github.com/ConfiYobo/django-easy-jwt'
-author = 'Confi Yobo'
+url = 'https://github.com/ConfiYobo/django-sweet-jwt'
+author = 'Confidence Yobo'
 author_email = 'confiyobo@gmail.com'
 license = 'MIT'
 install_requires = [
@@ -72,7 +72,7 @@ if sys.argv[-1] == 'publish':
     os.system('twine upload dist/*')
     shutil.rmtree('dist')
     shutil.rmtree('build')
-    shutil.rmtree('djangoeasy-jwt.egg-info')
+    shutil.rmtree('djangosweet-jwt.egg-info')
     print('You probably want to also tag the version now:')
     print("  git tag -a {0} -m 'version {0}'".format(version))
     print('  git push --tags')

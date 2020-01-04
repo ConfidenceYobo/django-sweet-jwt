@@ -1,5 +1,5 @@
 =======================
-EasyJWT
+SweetJWT
 =======================
 
 Overview
@@ -22,7 +22,7 @@ Install using ``pip``\ ...
 
 .. code:: bash
 
-    $ pip install djangoeasy-jwt
+    $ pip install djangosweet-jwt
 
 Credit to
 ----------
